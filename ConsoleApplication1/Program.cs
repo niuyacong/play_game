@@ -13,7 +13,7 @@ namespace ConsoleApplication1
 
         static void Main(string[] args)
         {
-
+            //测试
             //int[, ,] a = new int[1, 3, 4];
             //Console.WriteLine("数组有{0}页", a.GetLength(0));
             //Console.WriteLine("数组有{0}行", a.GetLength(1));
