@@ -109,9 +109,16 @@ namespace ConsoleApplication1
                     shifter = int.Parse(input) - 1;
                     //0000 0000 0000 0000 0000 0000 0000 0001:1左移position位
                     position = 1 << shifter;
-                    //当前玩家的位置和position做或运算，然后赋值到当前玩家的位置
-                    playPositions[currentPlayer - 1] |= position;
-                    valid = true;
+                    if ((position | playPositions[currentPlayer == 2 ? 0:1]) == playPositions[currentPlayer == 2 ? 0:1])
+                    {
+                        System.Console.WriteLine("\nERROR:不能覆盖！");
+                    }
+                    else
+                    {
+                        //当前玩家的位置和position做或运算，然后赋值到当前玩家的位置
+                        playPositions[currentPlayer - 1] |= position;
+                        valid = true;
+                    }
                     break;
                 case "":
                 case "quit":
@@ -141,7 +148,8 @@ namespace ConsoleApplication1
             {
                 char token = CalculateToken(playPositions,position);
 
-                //写出一个单元格的值和后面的边框                System.Console.Write(" {0}{1}",token,borders[border]);
+                //写出一个单元格的值和后面的边框             
+                System.Console.Write(" {0}{1}",token,borders[border]);
             }
         }
 
